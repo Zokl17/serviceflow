@@ -108,6 +108,16 @@ class OrderAdmin(admin.ModelAdmin):
                 .first()
             )
 
+        # Если назначили мастера, автоматически меняем статус.
+        if (
+            obj.assigned_worker_id
+            and obj.status in (
+                Order.Status.NEW,
+                Order.Status.ACCEPTED,
+            )
+        ):
+            obj.status = Order.Status.ASSIGNED
+
         super().save_model(request, obj, form, change)
 
         if not change:
