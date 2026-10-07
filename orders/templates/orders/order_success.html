@@ -1,0 +1,45 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+Заявка создана — ServiceFlow
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <h1>Заявка успешно создана</h1>
+
+    <p>
+        Номер вашей заявки:
+    </p>
+
+    <div class="order-number">
+        {{ order.number }}
+    </div>
+
+    <p>
+        <strong>Имя:</strong>
+        {{ order.customer_name }}
+    </p>
+
+    <p>
+        <strong>Дата визита:</strong>
+        {{ order.visit_date }}
+    </p>
+
+    <p>
+        <strong>Время:</strong>
+        {{ order.get_time_slot_display }}
+    </p>
+
+    <a
+        class="button"
+        href="{% url 'orders:home' %}"
+    >
+        На главную
+    </a>
+
+</div>
+
+{% endblock %}

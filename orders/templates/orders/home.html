@@ -1,0 +1,27 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+ServiceFlow
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <h1>Ремонт техники с выездом на дом</h1>
+
+    <p>
+        Оставьте заявку, выберите удобное время,
+        и специалист свяжется с вами.
+    </p>
+
+    <a
+        class="button"
+        href="{% url 'orders:create' %}"
+    >
+        Оставить заявку
+    </a>
+
+</div>
+
+{% endblock %}
